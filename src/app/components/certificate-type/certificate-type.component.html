@@ -1,0 +1,30 @@
+<h1>Create Certificate Type</h1>
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Certificate Name</mat-label>
+    <input matInput placeholder="Certificate Name" [(ngModel)]="certificateType.name" name="name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Description" [(ngModel)]="certificateType.description" name="description"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
+
+ <!-- Sertifika Listesi -->
+ <table mat-table [dataSource]="certificateTypeList" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'description']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'description'];"></tr>
+  </table>

@@ -1,5 +1,8 @@
+import { identity } from "rxjs";
+
 export const CREW_DATA = [
     {
+      id: 1,
       firstName: 'John',
       lastName: 'Doe',
       nationality: 'American',
@@ -12,6 +15,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 2,
       firstName: 'Jane',
       lastName: 'Smith',
       nationality: 'British',
@@ -24,6 +28,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 3,
       firstName: 'Michael',
       lastName: 'Johnson',
       nationality: 'Canadian',
@@ -36,6 +41,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 4,
       firstName: 'Alice',
       lastName: 'Williams',
       nationality: 'Australian',
@@ -48,6 +54,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 5,
       firstName: 'Robert',
       lastName: 'Brown',
       nationality: 'American',
@@ -60,6 +67,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 6,
       firstName: 'Olivia',
       lastName: 'Taylor',
       nationality: 'Canadian',
@@ -72,6 +80,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 7,
       firstName: 'Liam',
       lastName: 'Miller',
       nationality: 'Irish',
@@ -84,6 +93,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 8,
       firstName: 'Sophia',
       lastName: 'Davis',
       nationality: 'British',
@@ -96,6 +106,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 9,
       firstName: 'James',
       lastName: 'Miller',
       nationality: 'Australian',
@@ -108,6 +119,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 10,
       firstName: 'Ethan',
       lastName: 'Wilson',
       nationality: 'Canadian',
@@ -120,6 +132,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 11,
       firstName: 'Mia',
       lastName: 'Moore',
       nationality: 'American',
@@ -132,6 +145,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 12,
       firstName: 'Jacob',
       lastName: 'Anderson',
       nationality: 'British',
@@ -144,6 +158,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 13,
       firstName: 'Amelia',
       lastName: 'Thomas',
       nationality: 'Canadian',
@@ -156,6 +171,7 @@ export const CREW_DATA = [
       ],
     },
     {
+      id: 14,
       firstName: 'David',
       lastName: 'Jackson',
       nationality: 'Irish',

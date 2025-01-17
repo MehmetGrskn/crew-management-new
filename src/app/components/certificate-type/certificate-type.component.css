@@ -1,0 +1,20 @@
+.container {
+    padding: 16px;
+  
+    h1 {
+      margin-bottom: 16px;
+    }
+  
+    .certificate-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+  
+    table {
+      width: 100%;
+    }
+  }
+  
