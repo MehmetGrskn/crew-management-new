@@ -19,5 +19,10 @@ export class CrewService {
     newCrew.id = newId;  // Ensure the new crew has a unique ID
     CREW_DATA.push(newCrew);  // Add new crew to CREW_DATA
   }
+
+  deleteCrew(crewId: number): void {
+    const index = CREW_DATA.findIndex(crew => crew.id === crewId);  // Find the index of the crew to delete
+    CREW_DATA.splice(index, 1);  // Remove the crew from CREW_DATA
+  }
 }
   

@@ -17,7 +17,8 @@ import { MatTableDataSource } from '@angular/material/table';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    
   ]
 })
 export class CertificateTypeComponent {

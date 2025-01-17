@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CrewService } from '../../services/crew.service';
 import { CommonModule } from '@angular/common';
-
-
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { CrewAddComponent } from '../crew-add/crew-add.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { CrewEditComponent } from '../crew-edit/crew-edit.component';
 
 @Component({
   selector: 'app-home',
@@ -19,55 +19,79 @@ import { CrewAddComponent } from '../crew-add/crew-add.component';
     MatTableModule,
     MatMenuModule,
     CommonModule,
+    MatPaginator,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  crewData: any[] = [];
-  // displayedColumns: string[] = ['firstName', 'lastName', 'nationality', 'action'];
-  displayedColumns: 
-  string[] = [
+export class HomeComponent implements OnInit, AfterViewInit {
+  crewData: MatTableDataSource<any> = new MatTableDataSource<any>();
+  displayedColumns: string[] = [
     'firstName', 
     'lastName', 
     'nationality', 
-    'title' , 
-    'daysOnBoard' , 
-    'dailyRate' , 
-    'currency' , 
+    'title', 
+    'daysOnBoard', 
+    'dailyRate', 
+    'currency', 
     'totalIncome',
-    'action'];
+    'action'
+  ];
 
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator | null = null; // Değişiklik: null olarak başlatıyoruz
 
-    
   constructor(
     private crewService: CrewService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.crewData = this.crewService.getCrewData();
-    console.log("ngoninit called");
-    
+    this.crewData = new MatTableDataSource(this.crewService.getCrewData());
+    console.log("ngOnInit called");
+  }
+
+  ngAfterViewInit(): void {
+    if (this.paginator) {
+      this.crewData.paginator = this.paginator; // Paginator'ı bağla
+    }
   }
 
   calculateTotalIncome(dailyRate: number, daysOnBoard: number, currency: string): number {
-    const totalIncome = dailyRate * daysOnBoard;
-    return totalIncome;
+    return dailyRate * daysOnBoard;
   }
-  
+
   openAddCrewDialog(): void {
     const dialogRef = this.dialog.open(CrewAddComponent, {
       width: '500px',
     });
+    
 
     dialogRef.afterClosed().subscribe(result => {
-      // Do something after the dialog closes, e.g., refresh the list
-      console.log('Crew dialog was closed');
-      console.log("Nwe crew data: ", this.crewService.getCrewData());
-      this.crewData = [...this.crewService.getCrewData()];
-
+      this.crewData.data = this.crewService.getCrewData(); // Yeni verileri güncelle
     });
   }
-}
 
+  deleteCrew(crewId: number): void {
+    this.crewService.deleteCrew(crewId);
+    this.crewData.data = this.crewService.getCrewData(); // Yeni verileri güncelle
+  }
+
+  openEditCrewDialog(crew: any): void {
+    const dialogRef = this.dialog.open(CrewEditComponent, {
+      width: '500px',
+      data: { ...crew }, // Seçilen tayfanın verilerini gönder
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Gelen yeni veriyi güncelleyin
+        const index = this.crewData.data.findIndex(item => item.id === crew.id);
+        if (index !== -1) {
+          this.crewData.data[index] = result;
+          this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için yeni referans
+        }
+      }
+    });
+  }
+  
+}

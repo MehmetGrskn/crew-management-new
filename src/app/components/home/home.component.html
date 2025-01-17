@@ -57,8 +57,8 @@
     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="['/crew', element.id]">View Details</button> <!-- Yönlendirme -->
-      <button mat-menu-item>Edit</button>
-      <button mat-menu-item>Delete</button>   
+      <button mat-menu-item (click)="openEditCrewDialog(element)">Edit</button>
+      <button mat-menu-item (click)="deleteCrew(element.id)">Delete</button>   
     </mat-menu>
   </td>
 </ng-container>
@@ -68,6 +68,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page" showFirstLastButtons></mat-paginator>
 
 
 <button mat-raised-button (click)="openAddCrewDialog()">Add Crew</button>

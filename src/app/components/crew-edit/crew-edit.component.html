@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Edit Crew</h1>
+<div mat-dialog-content>
+  <form [formGroup]="editForm">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" placeholder="Enter first name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Enter last name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nationality</mat-label>
+      <input matInput formControlName="nationality" placeholder="Enter nationality">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="Enter title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Days On Board</mat-label>
+      <input type="number" matInput formControlName="daysOnBoard" placeholder="Enter days on board">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Daily Rate</mat-label>
+      <input type="number" matInput formControlName="dailyRate" placeholder="Enter daily rate">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Currency</mat-label>
+      <mat-select formControlName="currency">
+        <mat-option value="USD">USD</mat-option>
+        <mat-option value="EUR">EUR</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save()" [disabled]="!editForm.valid">Save</button>
+</div>
