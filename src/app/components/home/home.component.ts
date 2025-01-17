@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CrewAddComponent } from '../crew-add/crew-add.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { CrewEditComponent } from '../crew-edit/crew-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import { CrewEditComponent } from '../crew-edit/crew-edit.component';
     MatMenuModule,
     CommonModule,
     MatPaginator,
+    FormsModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     'daysOnBoard', 
     'dailyRate', 
     'currency', 
+    'discount',
     'totalIncome',
     'action'
   ];
@@ -54,10 +57,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.paginator) {
       this.crewData.paginator = this.paginator; // Paginator'ı bağla
     }
-  }
-
-  calculateTotalIncome(dailyRate: number, daysOnBoard: number, currency: string): number {
-    return dailyRate * daysOnBoard;
   }
 
   openAddCrewDialog(): void {
@@ -93,5 +92,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  // Discount'u güncelleyen fonksiyon
+updateTotalIncome(element: any): void {
+  element.totalIncome = this.calculateTotalIncome(
+    element.dailyRate,
+    element.daysOnBoard,
+    element.currency,
+    element.discount || 0 // Discount yoksa 0 olarak kabul edilir
+  );
+  this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için referansı yenile
+}
+
+// Total Income hesaplamasına Discount'u ekle
+calculateTotalIncome(
+  dailyRate: number,
+  daysOnBoard: number,
+  currency: string,
+  discount: number = 0
+): number {
+  const total = dailyRate * daysOnBoard;
+  return Math.max(0, total - discount); // Negatif değere düşmesini engelle
+}
   
 }
