@@ -31,7 +31,8 @@
     "DESCRIPTION_COL": "Description",
     "ADD_NEW_CREW": "Add New Crew",
     "CERTIFICATE": "Certificate",
-    "ENTER_FIRST_NAME": "Enter the first name"
+    "ENTER_FIRST_NAME": "Enter the first name",
+    "TYPE": "Type"
   }
   
 
