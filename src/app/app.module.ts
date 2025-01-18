@@ -11,10 +11,13 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CrewCardComponent } from './components/crew-card/crew-card.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 
-
-
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -32,9 +35,13 @@ import { CrewCardComponent } from './components/crew-card/crew-card.component';
     CrewCardComponent,
     MatFormField,
     FormsModule,
-    MatPaginator
-  ]
+    MatPaginator,
+  ],
+  providers: []
+  
 })
-export class AppModule { }
+export class AppModule {
+
+ }
 
 

@@ -1,0 +1,10 @@
+.language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background-color: white; /* Arka plan rengi */
+    padding: 5px;
+    border-radius: 4px;
+  }
+  

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CrewService } from '../../services/crew.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -11,7 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./crew-card.component.scss'],
   imports: [
     MatTabsModule,
-    CommonModule]
+    CommonModule,
+    TranslateModule,
+
+  ]
 })
 export class CrewCardComponent implements OnInit {
   crew: any;

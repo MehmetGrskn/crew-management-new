@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-certificate-type',
@@ -18,7 +19,7 @@ import { MatTableDataSource } from '@angular/material/table';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    
+    TranslateModule
   ]
 })
 export class CertificateTypeComponent {

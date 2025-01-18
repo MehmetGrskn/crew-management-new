@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-crew-certificates',
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     MatTableModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    TranslateModule
   ]
 })
 export class CrewCertificatesDialogComponent {

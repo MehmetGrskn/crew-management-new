@@ -11,6 +11,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { CrewEditComponent } from '../crew-edit/crew-edit.component';
 import { FormsModule } from '@angular/forms';
 import { CrewCertificatesDialogComponent } from '../crew-certificates/crew-certificates.component';
+import { TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @Component({
   selector: 'app-home',
@@ -22,13 +29,24 @@ import { CrewCertificatesDialogComponent } from '../crew-certificates/crew-certi
     MatMenuModule,
     CommonModule,
     MatPaginator,
-    FormsModule
+    FormsModule,
+    TranslateModule,
+    MatToolbarModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   crewData: MatTableDataSource<any> = new MatTableDataSource<any>();
+  selectedLang = 'en';
+  languages = [
+    { code: 'en', label: 'English' },
+    { code: 'fr', label: 'Français' },
+    { code: 'pt', label: 'Portugese' }
+  ];
   displayedColumns: string[] = [
     'firstName', 
     'lastName', 
@@ -47,9 +65,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private crewService: CrewService,
-    private dialog: MatDialog
-  ) {}
-
+    private dialog: MatDialog,
+    private translate: TranslateService,
+  ) { 
+    this.selectedLang = this.translate.getDefaultLang();
+   }
   ngOnInit(): void {
     this.crewData = new MatTableDataSource(this.crewService.getCrewData());
     console.log("ngOnInit called");
@@ -104,6 +124,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       element.discount || 0 // Discount yoksa 0 olarak kabul edilir
     );
     this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için referansı yenile
+    this.crewService.updateDiscount(element.id, element.discount); 
   }
 
   // Total Income hesaplamasına Discount'u ekle
@@ -122,5 +143,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       width: '600px',
       data: crew  // crew verilerini modal'a gönderiyoruz
     });
+  }
+
+  changeLanguage(lang: string): void {
+    this.translate.use(lang);
   }
 }

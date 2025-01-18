@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { Crew , Certificate} from '../../models/crew-model';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -21,11 +23,13 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    OverlayModule
+    OverlayModule,
+    TranslateModule
   ]
 })
 export class CrewAddComponent {
-  newCrew = {
+  newCrew : Crew = {
+    id: 0,
     firstName: '',
     lastName: '',
     nationality: '',
@@ -33,11 +37,8 @@ export class CrewAddComponent {
     daysOnBoard: 0,
     dailyRate: 0,
     currency: '',
-    certificate: {
-      type: '',
-      issueDate: '',
-      expiryDate: ''
-    }
+    discount: 0,
+    certificates: []
   };
 
   constructor(

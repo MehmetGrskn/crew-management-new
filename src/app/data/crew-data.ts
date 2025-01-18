@@ -1,6 +1,7 @@
 import { identity } from "rxjs";
+import { Crew } from "../models/crew-model";
 
-export const CREW_DATA = [
+export const CREW_DATA: Crew[] = [
     {
       id: 1,
       firstName: 'John',
@@ -10,6 +11,7 @@ export const CREW_DATA = [
       daysOnBoard: 120,
       dailyRate: 200,
       currency: 'USD',
+      discount: 0,
       certificates: [
         { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
         { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
@@ -25,6 +27,7 @@ export const CREW_DATA = [
       daysOnBoard: 90,
       dailyRate: 180,
       currency: 'EUR',
+      discount: 0,
       certificates: [
         { type: 'First Aid', issueDate: '2022-05-01', expiryDate: '2024-05-01' },
       ],
@@ -38,8 +41,11 @@ export const CREW_DATA = [
       daysOnBoard: 80,
       dailyRate: 150,
       currency: 'USD',
+      discount: 0,
       certificates: [
-        { type: 'Food Safety', issueDate: '2022-10-01', expiryDate: '2024-10-01' },
+        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
+        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
+        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
       ],
     },
     {
@@ -51,6 +57,7 @@ export const CREW_DATA = [
       daysOnBoard: 110,
       dailyRate: 190,
       currency: 'EUR',
+      discount: 0,
       certificates: [
         { type: 'Engine Repair', issueDate: '2021-06-15', expiryDate: '2023-06-15' },
       ],
@@ -64,6 +71,7 @@ export const CREW_DATA = [
       daysOnBoard: 150,
       dailyRate: 220,
       currency: 'USD',
+      discount: 0,
       certificates: [
         { type: 'Electrical Safety', issueDate: '2022-07-20', expiryDate: '2024-07-20' },
       ],
@@ -77,6 +85,7 @@ export const CREW_DATA = [
       daysOnBoard: 70,
       dailyRate: 160,
       currency: 'CAD',
+      discount: 0,
       certificates: [
         { type: 'Food Safety', issueDate: '2021-03-12', expiryDate: '2023-03-12' },
       ],
@@ -90,6 +99,7 @@ export const CREW_DATA = [
       daysOnBoard: 180,
       dailyRate: 250,
       currency: 'EUR',
+      discount: 0,
       certificates: [
         { type: 'Navigation', issueDate: '2021-01-10', expiryDate: '2023-01-10' },
       ],
@@ -103,6 +113,7 @@ export const CREW_DATA = [
       daysOnBoard: 95,
       dailyRate: 210,
       currency: 'GBP',
+      discount: 0,
       certificates: [
         { type: 'Marine Engineering', issueDate: '2022-11-18', expiryDate: '2024-11-18' },
       ],
@@ -116,6 +127,7 @@ export const CREW_DATA = [
       daysOnBoard: 60,
       dailyRate: 140,
       currency: 'AUD',
+      discount: 0,
       certificates: [
         { type: 'Food Hygiene', issueDate: '2022-08-05', expiryDate: '2024-08-05' },
       ],
@@ -129,6 +141,7 @@ export const CREW_DATA = [
       daysOnBoard: 130,
       dailyRate: 210,
       currency: 'USD',
+      discount: 0,
       certificates: [
         { type: 'Mechanical Safety', issueDate: '2021-12-01', expiryDate: '2023-12-01' },
       ],
@@ -142,6 +155,7 @@ export const CREW_DATA = [
       daysOnBoard: 85,
       dailyRate: 155,
       currency: 'EUR',
+      discount: 0,
       certificates: [
         { type: 'Nutrition', issueDate: '2023-02-20', expiryDate: '2025-02-20' },
       ],
@@ -155,6 +169,7 @@ export const CREW_DATA = [
       daysOnBoard: 100,
       dailyRate: 200,
       currency: 'GBP',
+      discount: 0,
       certificates: [
         { type: 'Welding', issueDate: '2022-04-15', expiryDate: '2024-04-15' },
       ],
@@ -168,6 +183,7 @@ export const CREW_DATA = [
       daysOnBoard: 140,
       dailyRate: 230,
       currency: 'USD',
+      discount: 0,
       certificates: [
         { type: 'Captain License', issueDate: '2020-09-05', expiryDate: '2024-09-05' },
       ],
@@ -181,6 +197,7 @@ export const CREW_DATA = [
       daysOnBoard: 120,
       dailyRate: 175,
       currency: 'EUR',
+      discount: 0,
       certificates: [
         { type: 'Shipbuilding', issueDate: '2022-02-18', expiryDate: '2024-02-18' },
       ],

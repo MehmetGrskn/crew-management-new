@@ -1,26 +1,26 @@
 <div class="crew-card">
   <mat-tab-group>
     <!-- Card Tab -->
-    <mat-tab label="Crew Card">
+    <mat-tab label="{{'CREW_CARD' | translate}}">
       <div *ngIf="crew">
         <h2>{{ crew.firstName }} {{ crew.lastName }}</h2>
-        <p><strong>Title:</strong> {{ crew.title }}</p>
-        <p><strong>Nationality:</strong> {{ crew.nationality }}</p>
-        <p><strong>Days On Board:</strong> {{ crew.daysOnBoard }}</p>
-        <p><strong>Daily Rate:</strong> {{ crew.dailyRate }}</p>
-        <p><strong>Currency:</strong> {{ crew.currency }}</p>
-        <p><strong>Total Income:</strong> {{ calculateTotalIncome(crew.dailyRate, crew.daysOnBoard, crew.currency) }}</p>
+        <p><strong>{{'TITLE' | translate}} :</strong> {{ crew.title }}</p>
+        <p><strong>{{'NATIONALITY' | translate}} :</strong> {{ crew.nationality }}</p>
+        <p><strong>{{'DAYS_ON_BOARD' | translate}} :</strong> {{ crew.daysOnBoard }}</p>
+        <p><strong>{{'DAILY_RATE' | translate}} :</strong> {{ crew.dailyRate }}</p>
+        <p><strong>{{'CURRENCY' | translate}} :</strong> {{ crew.currency }}</p>
+        <p><strong>{{'TOTAL_INCOME' | translate}} :</strong> {{ calculateTotalIncome(crew.dailyRate, crew.daysOnBoard, crew.currency) }}</p>
       </div>
     </mat-tab>
 
     <!-- Certificates Tab -->
-    <mat-tab label="Certificates">
+    <mat-tab label="{{'CERTIFICATES' | translate}}">
       <div *ngIf="crew && crew.certificates">
         <ul>
           <li *ngFor="let certificate of crew.certificates">
             <strong>{{ certificate.type }}</strong>
-            <p>Issue Date: {{ certificate.issueDate }}</p>
-            <p>Expiry Date: {{ certificate.expiryDate }}</p>
+            <p>{{'ISSUE_DATE' | translate}}: {{ certificate.issueDate }}</p>
+            <p>{{'EXPIRY_DATE' | translate}}: {{ certificate.expiryDate }}</p>
           </li>
         </ul>
       </div>
