@@ -2,3 +2,137 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 16px;
+    margin-right: 50px;
+  }
+  
+  .action-buttons button {
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+  }
+  
+  .action-buttons button:hover {
+    background-color: #303f9f;
+  }
+  
+  .action-buttons button:active {
+    background-color: #283593;
+  }
+
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  table {
+    margin-top: 24px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #3f51b5;
+  }
+  
+  table mat-form-field {
+    margin-bottom: 16px;
+    width: calc(50% - 8px);
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  mat-dialog-actions button {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 6px;
+  }
+  
+  mat-dialog-actions button[type="submit"] {
+    background-color: #3f51b5;
+    color: #fff;
+  }
+  
+  mat-dialog-actions button[type="submit"]:hover {
+    background-color: #303f9f;
+  }
+  
+  mat-dialog-actions button[type="button"] {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  mat-dialog-actions button[type="button"]:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Crew Card Container */
+.crew-card {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tab Group */
+  .crew-card mat-tab-group {
+    margin-top: 20px;
+  }
+  
+  /* Crew Card Tab */
+  .crew-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 16px;
+  }
+  
+  .crew-card p {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+  
+  .crew-card p strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Certificates Tab */
+  .crew-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+  
+  .crew-card li {
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+   
+    }  
+  

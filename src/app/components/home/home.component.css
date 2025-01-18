@@ -1,0 +1,147 @@
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #616161;
+  }
+  
+  td {
+    font-size: 14px;
+    color: #424242;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  input[type="number"] {
+    width: 80px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #3f51b5;
+    outline: none;
+    box-shadow: 0 0 3px rgba(63, 81, 181, 0.5);
+  }
+  
+  button {
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    background: transparent;
+    color: #3f51b5;
+  }
+  
+  button:hover {
+    background-color: rgba(63, 81, 181, 0.1);
+  }
+  
+  button.mat-menu-trigger {
+    background: transparent;
+    color: #3f51b5;
+  }
+  
+  mat-paginator {
+    margin: 16px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  mat-paginator .mat-paginator-page-size {
+    font-size: 12px;
+    color: #616161;
+  }
+  
+  mat-paginator button {
+    color: #3f51b5;
+  }
+  
+  mat-paginator button:hover {
+    background-color: rgba(63, 81, 181, 0.1);
+  }
+  
+  button.mat-raised-button {
+    background-color: #3f51b5;
+    color: #fff;
+    margin: 8px 4px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #303f9f;
+  }
+
+  /* Düğmeleri içeren kapsayıcı stil */
+button {
+  font-size: 14px;
+  padding: 10px 20px; /* Düğme boyutunu artırır */
+  margin: 0 12px; /* Düğmeler arasındaki mesafeyi artırır */
+  border-radius: 6px;
+}
+
+button.mat-raised-button {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+button.mat-raised-button:hover {
+  background-color: #303f9f;
+}
+
+/* Düğmelerin sağa hizalanması */
+.mat-paginator + div {
+  display: flex;
+  justify-content: flex-end; /* Sağ tarafa hizalar */
+  margin-top: 16px; /* Üstüne mesafe ekler */
+}
+
+.mat-paginator + div button {
+  font-size: 16px; /* Düğmelerin yazı boyutunu artırır */
+  padding: 12px 24px; /* Düğmelerin genel boyutunu büyütür */
+}
+
+.action-buttons {
+    display: flex; /* Flexbox düzeni */
+    justify-content: flex-end; /* Sağ tarafa hizalama */
+    gap: 16px; /* Düğmeler arasındaki mesafe */
+    margin-top: 16px; /* Üst boşluk */
+  }
+  
+  .action-buttons button {
+    font-size: 16px; /* Yazı boyutu */
+    padding: 12px 24px; /* Düğme boyutunu artırır */
+    border-radius: 6px; /* Kenar yumuşatması */
+    background-color: #3f51b5; /* Arka plan rengi */
+    color: #fff; /* Yazı rengi */
+    border: none; /* Çerçeve kaldırma */
+  }
+  
+  .action-buttons button:hover {
+    background-color: #303f9f; /* Hover efekti */
+  }
+  
+  .action-buttons button:active {
+    background-color: #283593; /* Tıklama efekti */
+  }
+  
+  

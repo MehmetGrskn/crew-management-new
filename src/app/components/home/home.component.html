@@ -81,7 +81,7 @@
 </table>
 <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page" showFirstLastButtons></mat-paginator>
 
-
-<button mat-raised-button (click)="openAddCrewDialog()">Add Crew</button>
-<button mat-raised-button routerLink="/certificate-type">Add Certificate Type</button>
-
+<div class="action-buttons">
+  <button mat-raised-button (click)="openAddCrewDialog()">Add Crew</button>
+  <button mat-raised-button routerLink="/certificate-type">Add Certificate Type</button>
+</div>

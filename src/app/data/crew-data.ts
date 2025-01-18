@@ -12,6 +12,8 @@ export const CREW_DATA = [
       currency: 'USD',
       certificates: [
         { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
+        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
+        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
       ],
     },
     {
