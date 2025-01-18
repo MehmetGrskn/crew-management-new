@@ -10,6 +10,7 @@ import { CrewAddComponent } from '../crew-add/crew-add.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { CrewEditComponent } from '../crew-edit/crew-edit.component';
 import { FormsModule } from '@angular/forms';
+import { CrewCertificatesDialogComponent } from '../crew-certificates/crew-certificates.component';
 
 @Component({
   selector: 'app-home',
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     'currency', 
     'discount',
     'totalIncome',
+    'certificates',
     'action'
   ];
 
@@ -94,25 +96,31 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   // Discount'u güncelleyen fonksiyon
-updateTotalIncome(element: any): void {
-  element.totalIncome = this.calculateTotalIncome(
-    element.dailyRate,
-    element.daysOnBoard,
-    element.currency,
-    element.discount || 0 // Discount yoksa 0 olarak kabul edilir
-  );
-  this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için referansı yenile
-}
+  updateTotalIncome(element: any): void {
+    element.totalIncome = this.calculateTotalIncome(
+      element.dailyRate,
+      element.daysOnBoard,
+      element.currency,
+      element.discount || 0 // Discount yoksa 0 olarak kabul edilir
+    );
+    this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için referansı yenile
+  }
 
-// Total Income hesaplamasına Discount'u ekle
-calculateTotalIncome(
-  dailyRate: number,
-  daysOnBoard: number,
-  currency: string,
-  discount: number = 0
-): number {
-  const total = dailyRate * daysOnBoard;
-  return Math.max(0, total - discount); // Negatif değere düşmesini engelle
-}
+  // Total Income hesaplamasına Discount'u ekle
+  calculateTotalIncome(
+      dailyRate: number,
+      daysOnBoard: number,
+      currency: string,
+      discount: number = 0
+    ): number {
+      const total = dailyRate * daysOnBoard;
+      return Math.max(0, total - discount); // Negatif değere düşmesini engelle
+    }
   
+  openCertificatesDialog(crew: any): void {
+    const dialogRef = this.dialog.open(CrewCertificatesDialogComponent, {
+      width: '600px',
+      data: crew  // crew verilerini modal'a gönderiyoruz
+    });
+  }
 }

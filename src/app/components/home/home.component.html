@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="crewData" class="mat-elevation-z8">
+<table mat-table [dataSource]="crewData" class="mat-elevation-z8 home-table">
   <!-- First Name Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef> First Name </th>
@@ -58,9 +58,13 @@
   </td>
 </ng-container>
 
+<ng-container matColumnDef="certificates">
+  <th mat-header-cell *matHeaderCellDef> Certificates </th>
+  <td mat-cell *matCellDef="let element">
+    <button mat-button class="certificates-button" (click)="openCertificatesDialog(element)">Certificates</button>
+  </td>
+</ng-container>
 
-
-  <!-- Action Column -->
   <!-- Action Column -->
 <ng-container matColumnDef="action">
   <th mat-header-cell *matHeaderCellDef> Actions </th>
