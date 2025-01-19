@@ -39,6 +39,8 @@ export class CrewService {
     let crewData = this.getCrewData();
     const index = crewData.findIndex(crew => crew.id === updatedCrew.id);
     if (index !== -1) {
+      console.log("index", index, "updatedCrew", updatedCrew);
+      
       crewData[index] = updatedCrew;
       localStorage.setItem(this.storageKey, JSON.stringify(crewData));
     }

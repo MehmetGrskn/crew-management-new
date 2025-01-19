@@ -101,7 +101,6 @@ export class CrewAddComponent {
 
       console.log('certificateType', certificateType);
       
-      
       return {
         id: certificate.certificateId,
         certificateId: certificate.certificateId,

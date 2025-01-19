@@ -37,13 +37,37 @@
       <mat-label>{{"DISCOUNT" | translate}}</mat-label>
       <input type="number" matInput formControlName="discount" placeholder='{{"DISCOUNT" | translate}}'>
     </mat-form-field>
+  </form>
 
+  <table class="crew-add-table-certificates">
+    <h2>{{'CERTIFICATE' | translate}}</h2>
 
-    <!-- Crew Sertifikalarını Listeleme -->
-    <div>
-      <h3>{{'CERTIFICATES' | translate}}</h3>
+    <div class="certificate-add-table">
+    <mat-form-field>
+      <mat-label>{{'CERTIFICATE_TYPE' | translate}}</mat-label>
+      <mat-select [(ngModel)]="newCertificateType" name="certificateType" required>
+      <mat-option *ngFor="let type of certificateTypes" [value]="type">{{type.type}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>{{'ISSUE_DATE' | translate}}</mat-label>
+      <input matInput placeholder="{{'ISSUE_DATE' | translate}}" [(ngModel)]="newCertificate.issueDate" name="issueDate" type="date" required />
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>{{'EXPIRY_DATE' | translate}}</mat-label>
+      <input matInput placeholder="{{'EXPIRY_DATE' | translate}}" [(ngModel)]="newCertificate.expiryDate" name="expiryDate" type="date" required />
+    </mat-form-field>
+  
+    <button mat-button class="addCertificate-button" type="button" (click)="addCertificate()">{{'ADD_CERTIFICATE' | translate}}</button>
+    </div>
+
+    <!-- Sertifikaların listesini göster -->
+    <div *ngIf="crewCertificates?.length ?? 0 > 0">
+      <h3>{{'ADDED_CERTIFICATES' | translate}}</h3>
       <mat-list>
-        <mat-list-item *ngFor="let certificate of certificateTypeList; let i = index">
+        <mat-list-item *ngFor="let certificate of crewCertificates; let i = index">
           {{ certificate.type }}
           <button type="button" mat-icon-button color="warn" (click)="removeCertificate(i)">
             <mat-icon>delete</mat-icon>
@@ -51,7 +75,7 @@
         </mat-list-item>
       </mat-list>
     </div>
-  </form>
+  </table>
 </div>
 
 <div mat-dialog-actions>

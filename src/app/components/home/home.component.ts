@@ -111,8 +111,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         // Gelen yeni veriyi güncelleyin
         const index = this.crewData.data.findIndex(item => item.id === crew.id);
         if (index !== -1) {
-          this.crewData.data[index] = result;
-          this.crewData.data = [...this.crewData.data]; // MatTable'ın değişikliği algılaması için yeni referans
+          this.crewService.updateCrew(result); // Güncellenmiş veriyi servise gönder
+          this.crewData.data = this.crewService.getCrewData(); // Yeni verileri güncelle
         }
       }
     });
