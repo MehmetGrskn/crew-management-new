@@ -32,6 +32,23 @@
     "ADD_NEW_CREW": "Adicionar Nova Tripulação",
     "CERTIFICATE": "Certificado",
     "ENTER_FIRST_NAME": "Digite o primeiro nome",
-    "TYPE": "Tipo"
+    "TYPE": "Tipo",
+    "BACK": "Voltar",
+    "ALL_FIELDS_REQUIRED": "Todos os campos devem ser preenchidos",
+    "CAPTAIN": "Capitão",
+    "ENGINEER": "Engenheiro",
+    "COOK": "Cozinheiro",
+    "MECHANIC": "Mecânico",
+    "DECKHAND": "Marinheiro",
+    "STEWARD": "Comissário",
+    "CHIEF_ENGINEER": "Engenheiro Chefe",
+    "CHIEF_OFFICER": "Oficial Chefe",
+    "SECOND_OFFICER": "Segundo Oficial",
+    "THIRD_OFFICER": "Terceiro Oficial",
+    "CHIEF_STEWARD": "Comissário Chefe",
+    "SECOND_STEWARD": "Segundo Comissário",
+    "THIRD_STEWARD": "Terceiro Comissário",
+    "CHIEF_COOK": "Cozinheiro Chefe",
+    "SECOND_COOK": "Segundo Cozinheiro"
   }
   

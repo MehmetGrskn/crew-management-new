@@ -18,6 +18,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Crew } from '../../models/crew-model';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
@@ -35,7 +36,8 @@ import { Crew } from '../../models/crew-model';
     MatToolbarModule,
     MatOptionModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],

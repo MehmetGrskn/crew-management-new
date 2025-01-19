@@ -73,12 +73,16 @@ export class CrewAddComponent {
   }
 
   addCertificate(): void {
+    if (!this.newCertificateType.id || !this.newCertificate.issueDate || !this.newCertificate.expiryDate) {
+      alert('All fields must be filled out');
+      return;
+    }
     
     this.newCrew.certificateRelations.push({ 
       certificateId: this.newCertificateType.id,
       expiryDate: this.newCertificate.expiryDate, 
       issueDate: this.newCertificate.issueDate
-     });
+    });
 
      console.log('newCrew', this.newCrew);
      

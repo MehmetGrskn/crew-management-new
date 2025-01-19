@@ -4,6 +4,9 @@ import { CrewService } from '../../services/crew.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { Certificate } from '../../models/crew-model';
+import { MatTableModule } from '@angular/material/table';
 
 
 @Component({
@@ -14,6 +17,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     MatTabsModule,
     CommonModule,
     TranslateModule,
+    MatButtonModule,
+    MatTableModule
 
   ]
 })
@@ -29,11 +34,20 @@ export class CrewCardComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.crew = this.crewService.getCrewData().find(crew => crew.id === +id); // Assuming we have an 'id' in the data
+      // Crew verisini al
+      this.crew = this.crewService.getCrewData().find(crew => crew.id === +id);
+  
+      // Sertifikaları al ve ata
+      this.certificates = this.crewService.getCertificates(+id);
     }
   }
+  
 
   calculateTotalIncome(dailyRate: number, daysOnBoard: number, currency: string): number {
     return dailyRate * daysOnBoard;
+  }
+
+  goHome(): void {
+    window.location.href = '/';
   }
 }

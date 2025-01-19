@@ -1,3 +1,7 @@
+<button mat-raised-button color="accent" type="button" (click)="goHome()">
+  {{'BACK' | translate}}
+</button>
+
 <div class="crew-card">
   <mat-tab-group>
     <!-- Card Tab -->
@@ -14,7 +18,7 @@
     </mat-tab>
 
     <mat-tab label="{{ 'CERTIFICATES' | translate }}">
-      <div *ngIf="certificates?.length > 0; else noCertificates">
+      <div *ngIf="certificates && certificates.length > 0">
         <ul>
           <li *ngFor="let certificate of certificates">
             <strong>{{ certificate.type }}</strong>
@@ -23,9 +27,9 @@
           </li>
         </ul>
       </div>
-      <ng-template #noCertificates>
+      <div *ngIf="!certificates || certificates.length === 0">
         <p>{{ 'NO_CERTIFICATES' | translate }}</p>
-      </ng-template>
+      </div>
     </mat-tab>
     
   </mat-tab-group>

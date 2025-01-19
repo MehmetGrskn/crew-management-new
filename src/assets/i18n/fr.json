@@ -32,6 +32,23 @@
     "ADD_NEW_CREW": "Ajouter un Nouvel Équipage",
     "CERTIFICATE": "Certificat",
     "ENTER_FIRST_NAME": "Entrez le prénom",
-    "TYPE": "Type"
+    "TYPE": "Type",
+    "BACK": "Retour",
+    "ALL_FIELDS_REQUIRED": "Tous les champs doivent être remplis",
+    "CAPTAIN": "Capitaine",
+    "ENGINEER": "Ingénieur",
+    "COOK": "Cuisinier",
+    "MECHANIC": "Mécanicien",
+    "DECKHAND": "Matelot",
+    "STEWARD": "Steward",
+    "CHIEF_ENGINEER": "Chef ingénieur",
+    "CHIEF_OFFICER": "Premier officier",
+    "SECOND_OFFICER": "Deuxième officier",
+    "THIRD_OFFICER": "Troisième officier",
+    "CHIEF_STEWARD": "Chef steward",
+    "SECOND_STEWARD": "Deuxième steward",
+    "THIRD_STEWARD": "Troisième steward",
+    "CHIEF_COOK": "Chef cuisinier",
+    "SECOND_COOK": "Deuxième cuisinier"
   }
   

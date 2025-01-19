@@ -1,40 +1,60 @@
 <h1 mat-dialog-title>Edit Crew</h1>
-<div mat-dialog-content>
+<div class="edit-crew-dialog" mat-dialog-content>
   <form [formGroup]="editForm">
+    <!-- Diğer alanlar aynı kalacak -->
     <mat-form-field appearance="fill">
-      <mat-label>First Name</mat-label>
-      <input matInput formControlName="firstName" placeholder="Enter first name">
+      <mat-label>{{"FIRST_NAME" | translate}}</mat-label>
+      <input matInput formControlName="firstName" placeholder='{{"FIRST_NAME" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" placeholder="Enter last name">
+      <mat-label>{{"LAST_NAME" | translate}}</mat-label>
+      <input matInput formControlName="lastName" placeholder='{{"LAST_NAME" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Nationality</mat-label>
-      <input matInput formControlName="nationality" placeholder="Enter nationality">
+      <mat-label>{{"NATIONALITY" | translate}}</mat-label>
+      <input matInput formControlName="nationality" placeholder='{{"NATIONALITY" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title" placeholder="Enter title">
+      <mat-label>{{"TITLE" | translate}}</mat-label>
+      <input matInput formControlName="title" placeholder='{{"TITLE" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Days On Board</mat-label>
-      <input type="number" matInput formControlName="daysOnBoard" placeholder="Enter days on board">
+      <mat-label>{{"DAYS_ON_BOARD" | translate}}</mat-label>
+      <input type="number" matInput formControlName="daysOnBoard" placeholder='{{"DAYS_ON_BOARD" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Daily Rate</mat-label>
-      <input type="number" matInput formControlName="dailyRate" placeholder="Enter daily rate">
+      <mat-label>{{"DAILY_RATE" | translate}}</mat-label>
+      <input type="number" matInput formControlName="dailyRate" placeholder='{{"DAILY_RATE" | translate}}'>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Currency</mat-label>
+      <mat-label>{{"CURRENCY" | translate}}</mat-label>
       <mat-select formControlName="currency">
         <mat-option value="USD">USD</mat-option>
         <mat-option value="EUR">EUR</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>{{"DISCOUNT" | translate}}</mat-label>
+      <input type="number" matInput formControlName="discount" placeholder='{{"DISCOUNT" | translate}}'>
+    </mat-form-field>
+
+
+    <!-- Crew Sertifikalarını Listeleme -->
+    <div>
+      <h3>{{'CERTIFICATES' | translate}}</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let certificate of certificateTypeList; let i = index">
+          {{ certificate.type }}
+          <button type="button" mat-icon-button color="warn" (click)="removeCertificate(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </div>
   </form>
 </div>
+
 <div mat-dialog-actions>
-  <button mat-button (click)="close()">Cancel</button>
-  <button mat-button (click)="save()" [disabled]="!editForm.valid">Save</button>
+  <button mat-button (click)="close()">{{'CANCEL' | translate}}</button>
+  <button mat-button (click)="save()" [disabled]="!editForm.valid">{{'SAVE' | translate}}</button>
 </div>

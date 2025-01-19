@@ -1,3 +1,7 @@
+.mat-card-content {
+  padding: 45px;
+}
+
 table {
     width: 100%;
     border-spacing: 0;

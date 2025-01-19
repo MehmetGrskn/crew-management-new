@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>{{'FIRST_NAME' | translate}}</mat-label>
-      <input matInput placeholder="{{'ENTER_THE_FIRST_NAME' | translate}}" [(ngModel)]="newCrew.firstName" name="firstName" required />
+      <input matInput placeholder="{{'ENTER_FIRST_NAME' | translate}}" [(ngModel)]="newCrew.firstName" name="firstName" required />
     </mat-form-field>
     
     <mat-form-field>
@@ -13,11 +13,16 @@
     
     <mat-form-field>
       <mat-label>{{'NATIONALITY' | translate}}</mat-label>
-      <mat-select [(ngModel)]="newCrew.title" name="title" required>
+      <mat-select [(ngModel)]="newCrew.nationality" name="title" required>
         <mat-option value="Turkey">Turkey</mat-option>
         <mat-option value="American">American</mat-option>
-        <mat-option value="Cook">Cook</mat-option>
-        <mat-option value="Mechanic">Mechanic</mat-option>
+        <mat-option value="Indian">Indian</mat-option>
+        <mat-option value="United Kingdom">United Kingdom</mat-option>
+        <mat-option value="Indian">Sweden</mat-option>
+        <mat-option value="Canada">Canada</mat-option>
+        <mat-option value="Australia">Australia</mat-option>
+        <mat-option value="Germany">Germany</mat-option>
+        <mat-option value="France">France</mat-option>
       </mat-select>
     </mat-form-field>
     
@@ -28,6 +33,17 @@
         <mat-option value="Engineer">Engineer</mat-option>
         <mat-option value="Cook">Cook</mat-option>
         <mat-option value="Mechanic">Mechanic</mat-option>
+        <mat-option value="Deckhand">Deckhand</mat-option>
+        <mat-option value="Steward">Steward</mat-option>
+        <mat-option value="Chief Engineer">Chief Engineer</mat-option>
+        <mat-option value="Chief Officer">Chief Officer</mat-option>
+        <mat-option value="Second Officer">Second Officer</mat-option>
+        <mat-option value="Third Officer">Third Officer</mat-option>
+        <mat-option value="Chief Steward">Chief Steward</mat-option>
+        <mat-option value="Second Steward">Second Steward</mat-option>
+        <mat-option value="Third Steward">Third Steward</mat-option>
+        <mat-option value="Chief Cook">Chief Cook</mat-option>
+        <mat-option value="Second Cook">Second Cook</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -49,26 +65,29 @@
       </mat-select>
     </mat-form-field>
 
-    <table>
+    <table class="crew-add-table-certificates">
       <h2>{{'CERTIFICATE' | translate}}</h2>
+
+      <div class="certificate-add-table">
       <mat-form-field>
         <mat-label>{{'CERTIFICATE_TYPE' | translate}}</mat-label>
         <mat-select [(ngModel)]="newCertificateType" name="certificateType" required>
-          <mat-option *ngFor="let type of certificateTypes" [value]="type">{{type.type}}</mat-option>
+        <mat-option *ngFor="let type of certificateTypes" [value]="type">{{type.type}}</mat-option>
         </mat-select>
       </mat-form-field>
-
+    
       <mat-form-field>
         <mat-label>{{'ISSUE_DATE' | translate}}</mat-label>
         <input matInput placeholder="{{'ISSUE_DATE' | translate}}" [(ngModel)]="newCertificate.issueDate" name="issueDate" type="date" required />
       </mat-form-field>
-
+    
       <mat-form-field>
         <mat-label>{{'EXPIRY_DATE' | translate}}</mat-label>
         <input matInput placeholder="{{'EXPIRY_DATE' | translate}}" [(ngModel)]="newCertificate.expiryDate" name="expiryDate" type="date" required />
       </mat-form-field>
-
-      <button mat-button type="button" (click)="addCertificate()">{{'ADD_CERTIFICATE' | translate}}</button>
+    
+      <button mat-button class="addCertificate-button" type="button" (click)="addCertificate()">{{'ADD_CERTIFICATE' | translate}}</button>
+      </div>
 
       <!-- Sertifikaların listesini göster -->
       <div *ngIf="newCrew.certificates?.length ?? 0 > 0">

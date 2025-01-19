@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { NgModule } from '@angular/core'; // Import NgModule
 import { CertificateTypeService } from '../../services/certificate-type.service';
 import { Certificate } from '../../models/crew-model';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
@@ -20,7 +21,8 @@ import { Certificate } from '../../models/crew-model';
     MatInputModule,
     MatTableModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ]
 })
 export class CertificateTypeComponent implements OnInit {
@@ -67,5 +69,9 @@ export class CertificateTypeComponent implements OnInit {
   // Formu sıfırlama
   private resetForm(): void {
     this.certificateType = {id:0, type: '', description: '' };
+  }
+  
+  goHome(): void {
+    window.location.href = '/';
   }
 }

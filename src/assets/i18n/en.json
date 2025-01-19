@@ -19,7 +19,7 @@
     "CREW_DETAILS": "Crew Details",
     "ADD_CERTIFICATE": "Add Certificate",
     "CERTIFICATE_TYPE": "Certificate Type",
-    "ISSUE_DATE": "Issue Date",
+    "ISSUE_DATE": "Issue Date", 
     "EXPIRY_DATE": "Expiry Date",
     "SAVE": "Save",
     "CANCEL": "Cancel",
@@ -32,7 +32,24 @@
     "ADD_NEW_CREW": "Add New Crew",
     "CERTIFICATE": "Certificate",
     "ENTER_FIRST_NAME": "Enter the first name",
-    "TYPE": "Type"
+    "TYPE": "Type",
+    "BACK": "Back",
+    "ALL_FIELDS_REQUIRED": "All fields must be filled out",
+    "CAPTAIN": "Captain",
+    "ENGINEER": "Engineer",
+    "COOK": "Cook",
+    "MECHANIC": "Mechanic",
+    "DECKHAND": "Deckhand",
+    "STEWARD": "Steward",
+    "CHIEF_ENGINEER": "Chief Engineer",
+    "CHIEF_OFFICER": "Chief Officer",
+    "SECOND_OFFICER": "Second Officer",
+    "THIRD_OFFICER": "Third Officer",
+    "CHIEF_STEWARD": "Chief Steward",
+    "SECOND_STEWARD": "Second Steward",
+    "THIRD_STEWARD": "Third Steward",
+    "CHIEF_COOK": "Chief Cook",
+    "SECOND_COOK": "Second Cook"
   }
   
 

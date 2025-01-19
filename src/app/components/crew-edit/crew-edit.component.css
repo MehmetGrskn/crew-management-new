@@ -1,0 +1,12 @@
+div mat-dialog-content{
+    padding: 8px;
+}
+
+mat-mdc-dialog-surface{
+    padding: 12px !important;
+}
+
+.edit-crew-dialog {
+    max-height: 400px; /* İhtiyaçlarınıza göre yükseklik değeri ayarlayabilirsiniz */
+    overflow-y: auto;
+  }

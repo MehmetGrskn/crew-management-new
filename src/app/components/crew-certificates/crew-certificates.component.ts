@@ -19,4 +19,13 @@ import { Crew, UserCertificate } from '../../models/crew-model';
 })
 export class CrewCertificatesDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public crew: Crew ) { }
+
+  // ngOnInit(): void {
+  //   console.log('Crew Data:', this.crew); // Log crew data
+  //   if (this.crew && this.crew.certificates) {
+  //     this.crew.certificates.forEach(certificate => {
+  //       console.log('Certificate Type:', certificate.type); // Log certificate type
+  //     });
+  //   }
+  // }
 }
