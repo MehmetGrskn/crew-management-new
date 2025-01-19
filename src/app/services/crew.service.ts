@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Certificate, Crew } from '../models/crew-model';
 import { CREW_DATA } from '../data/crew-data';
+import { Certificate, Crew, UserCertificate, UserCertificateRelation } from '../models/crew-model';
+import { CertificateTypeService } from './certificate-type.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrewService {
-  private storageKey = 'crewDData';
+  private storageKey = 'crewData';
 
-  constructor() {
+  constructor(private certificateTypeService: CertificateTypeService) {
     // Initialize localStorage with CREW_DATA if not already present
     if (!localStorage.getItem(this.storageKey)) {
       localStorage.setItem(this.storageKey, JSON.stringify(CREW_DATA));
     }
   }
+
   getCrewData(): Crew[] {
     const data = localStorage.getItem(this.storageKey);
     return data ? JSON.parse(data) : [];
@@ -50,6 +52,70 @@ export class CrewService {
     if (index !== -1) {
       crewData[index].discount = discount;
       localStorage.setItem(this.storageKey, JSON.stringify(crewData));
+    }
+  }
+
+  getCertificates(crewId: number): UserCertificate[] {
+    const crewData = this.getCrewData();
+    const crew = crewData.find(crew => crew.id === crewId);
+    const certRelations = crew?.certificateRelations ?? [];
+    const certificateTypeObservables = this.certificateTypeService.getCertificates();
+    const certificateTypes: Certificate[] = [];
+    certificateTypeObservables.subscribe(certificates => {
+      certificateTypes.push(...certificates);
+    });
+    return certRelations.map(certRelation => {
+      const certificateType = certificateTypes.find(certType => {
+        
+        return certType.id === certRelation.certificateId;
+      });
+    
+      return {
+        id: certRelation.certificateId,
+        type: certificateType?.type || '',
+        description: certificateType?.description || '',
+        certificateId: certRelation.certificateId,
+        issueDate: certRelation.issueDate,
+        expiryDate: certRelation.expiryDate
+      };
+    });
+  }
+
+  assignCertificate(crewId: number, certificate: UserCertificateRelation): void {
+    let crewData = this.getCrewData();
+    const index = crewData.findIndex(crew => crew.id === crewId);
+    if (index !== -1) {
+      crewData[index].certificateRelations.push(certificate);
+      localStorage.setItem(this.storageKey, JSON.stringify(crewData));
+    }
+  }
+
+  removeCertificateWhereExists(certificateId: number): void {
+    let crewData = this.getCrewData();
+    crewData.forEach(crew => {
+      crew.certificateRelations = crew.certificateRelations.filter(cert => cert.certificateId !== certificateId);
+    });
+    localStorage.setItem(this.storageKey, JSON.stringify(crewData));
+  }
+
+  removeCertificate(crewId: number, certificateId: number): void {
+    let crewData = this.getCrewData();
+    const crewIndex = crewData.findIndex(crew => crew.id === crewId);
+    if (crewIndex !== -1) {
+      crewData[crewIndex].certificateRelations = crewData[crewIndex].certificateRelations.filter(cert => cert.certificateId !== certificateId);
+      localStorage.setItem(this.storageKey, JSON.stringify(crewData));
+    }
+  }
+
+  updateCertificate(crewId: number, updatedCertificate: UserCertificateRelation): void {
+    let crewData = this.getCrewData();
+    const crewIndex = crewData.findIndex(crew => crew.id === crewId);
+    if (crewIndex !== -1) {
+      const certIndex = crewData[crewIndex].certificateRelations.findIndex(cert => cert.certificateId === updatedCertificate.certificateId);
+      if (certIndex !== -1) {
+        crewData[crewIndex].certificateRelations[certIndex] = updatedCertificate;
+        localStorage.setItem(this.storageKey, JSON.stringify(crewData));
+      }
     }
   }
 }

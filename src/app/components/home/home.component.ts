@@ -17,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { Crew } from '../../models/crew-model';
 
 
 @Component({
@@ -138,7 +139,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       return Math.max(0, total - discount); // Negatif değere düşmesini engelle
     }
   
-  openCertificatesDialog(crew: any): void {
+  openCertificatesDialog(crew: Crew): void {
+    const crewCertificates = this.crewService.getCertificates(crew.id);
+    crew = { ...crew, certificates: crewCertificates }; // Sertifikaları crew'a ekle
+    console.log('crew', crew);
+    
     const dialogRef = this.dialog.open(CrewCertificatesDialogComponent, {
       width: '600px',
       data: crew  // crew verilerini modal'a gönderiyoruz

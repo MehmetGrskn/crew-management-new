@@ -1,5 +1,13 @@
+export interface UserCertificate extends Certificate, UserCertificateRelation {}
+
 export interface Certificate {
+  id: number;
+  description: string;
   type: string;
+}
+
+export interface UserCertificateRelation {
+  certificateId: number;
   issueDate: string;
   expiryDate: string;
 }
@@ -14,5 +22,6 @@ export interface Crew {
   dailyRate: number;
   discount: number;
   currency: string;
-  certificates: Certificate[];
+  certificateRelations: UserCertificateRelation[];
+  certificates?: UserCertificate[];
 }

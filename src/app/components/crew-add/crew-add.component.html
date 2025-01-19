@@ -51,24 +51,36 @@
 
     <table>
       <h2>{{'CERTIFICATE' | translate}}</h2>
-      <!-- <mat-form-field>
+      <mat-form-field>
         <mat-label>{{'CERTIFICATE_TYPE' | translate}}</mat-label>
-        <mat-select [(ngModel)]="newCrew.certificate.type" name="certificateType" required>
-          <mat-option value="Safety Training">Safety Training</mat-option>
-          <mat-option value="First Aid">First Aid</mat-option>
+        <mat-select [(ngModel)]="newCertificateType" name="certificateType" required>
+          <mat-option *ngFor="let type of certificateTypes" [value]="type">{{type.type}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>{{'ISSUE_DATE' | translate}}</mat-label>
-        <input matInput placeholder="{{'ISSUE_DATE' | translate}}" [(ngModel)]="newCrew.certificate.issueDate" name="issueDate" type="date" required />
+        <input matInput placeholder="{{'ISSUE_DATE' | translate}}" [(ngModel)]="newCertificate.issueDate" name="issueDate" type="date" required />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>{{'EXPIRY_DATE' | translate}}</mat-label>
-        <input matInput placeholder="{{'ISSUE_DATE' | translate}}" [(ngModel)]="newCrew.certificate.expiryDate" name="expiryDate" type="date" required />
-      </mat-form-field> -->
-  </table>
+        <input matInput placeholder="{{'EXPIRY_DATE' | translate}}" [(ngModel)]="newCertificate.expiryDate" name="expiryDate" type="date" required />
+      </mat-form-field>
+
+      <button mat-button type="button" (click)="addCertificate()">{{'ADD_CERTIFICATE' | translate}}</button>
+
+      <!-- Sertifikaların listesini göster -->
+      <div *ngIf="newCrew.certificates?.length ?? 0 > 0">
+        <h3>{{'ADDED_CERTIFICATES' | translate}}</h3>
+        <ul>
+          <li *ngFor="let cert of newCrew.certificates">
+            {{ cert.type }} - {{ cert.issueDate }} to {{ cert.expiryDate }}
+          </li>
+        </ul>
+      </div>
+    </table>
+
     <div mat-dialog-actions>
       <button mat-button type="button" (click)="onCancel()">{{'CANCEL' | translate}}</button>
       <button mat-button type="submit">{{'SAVE' | translate}}</button>

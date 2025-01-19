@@ -19,10 +19,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class CrewCardComponent implements OnInit {
   crew: any;
+  certificates: any;
   
   constructor(
     private route: ActivatedRoute,
-    private crewService: CrewService
+    private crewService: CrewService,
   ) {}
 
   ngOnInit(): void {

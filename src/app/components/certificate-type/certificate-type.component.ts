@@ -1,46 +1,71 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CertificateService } from '../../services/certificate-type.service';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { MatTableDataSource } from '@angular/material/table';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { NgModule } from '@angular/core'; // Import NgModule
+import { CertificateTypeService } from '../../services/certificate-type.service';
+import { Certificate } from '../../models/crew-model';
+
 
 @Component({
   selector: 'app-certificate-type',
   templateUrl: './certificate-type.component.html',
   styleUrls: ['./certificate-type.component.scss'],
   imports: [
-    FormsModule,
+    TranslateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
     MatTableModule,
-    TranslateModule
+    MatButtonModule,
+    FormsModule
   ]
 })
-export class CertificateTypeComponent {
-  certificateTypeList = new MatTableDataSource<{ name: string; description: string }>([]);
+export class CertificateTypeComponent implements OnInit {
+  certificateType : Certificate= { id: 0, type: '', description: '' };
+  certificateTypeList:Certificate[] = [
+    
+  ];
 
-  certificateType = {
-    name: '',
-    description: ''
-  };
+  constructor(private certificateTypeService: CertificateTypeService) {}
 
-  constructor(private certificateService: CertificateService, private router: Router) {}
+  ngOnInit(): void {
+    this.loadCertificateTypes();
+  }
 
+  // Mevcut sertifika türlerini yükle
+  loadCertificateTypes(): void {
+    const certificatesObservables = this.certificateTypeService.getCertificates();
+    const certificates: Certificate[] = [];
+    certificatesObservables.subscribe(c => {
+      certificates.push(...c);
+    });
+    this.certificateTypeList = certificates;
+  }
+
+  // Form gönderimi ve liste güncelleme
   onSubmit(): void {
-    // Yeni öğeyi listeye ekle
-    const newCertificate = { ...this.certificateType };
-    this.certificateTypeList.data = [...this.certificateTypeList.data, newCertificate];
+    if (this.isValidCertificateType(this.certificateType)) {
+      this.certificateTypeService.addCertificate({
+        ...this.certificateType,
+      });
+      
+      this.resetForm();
+      this.loadCertificateTypes();
+    } else {
+      console.error('Form geçersiz. Lütfen tüm alanları doldurun.');
+    }
+  }
 
-    // Servise gönder (eğer gerekiyorsa)
-    this.certificateService.addCertificateType(newCertificate);
+  // Form doğrulama
+  private isValidCertificateType(type: Certificate): boolean {
+    return type.type.trim() !== '' && type.description.trim() !== '';
+  }
 
-    // Formu sıfırla
-    this.certificateType = { name: '', description: '' };
+  // Formu sıfırlama
+  private resetForm(): void {
+    this.certificateType = {id:0, type: '', description: '' };
   }
 }

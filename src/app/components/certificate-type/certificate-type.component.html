@@ -2,7 +2,7 @@
 <form (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>{{'CERTIFICATE_NAME' | translate}}</mat-label>
-    <input matInput placeholder="{{'CERTIFICATE_NAME' | translate}}" [(ngModel)]="certificateType.name" name="name" required />
+    <input matInput placeholder="{{'CERTIFICATE_NAME' | translate}}" [(ngModel)]="certificateType.type" name="type" required />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -16,8 +16,8 @@
  <!-- Sertifika Listesi -->
  <table mat-table [dataSource]="certificateTypeList" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>{{'NAME' | translate}}</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <th mat-header-cell *matHeaderCellDef>{{'TYPE' | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
     </ng-container>
 
     <ng-container matColumnDef="description">

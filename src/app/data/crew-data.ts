@@ -2,205 +2,83 @@ import { identity } from "rxjs";
 import { Crew } from "../models/crew-model";
 
 export const CREW_DATA: Crew[] = [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      nationality: 'American',
-      title: 'Captain',
-      daysOnBoard: 120,
-      dailyRate: 200,
-      currency: 'USD',
-      discount: 0,
-      certificates: [
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-      ],
-    },
-    {
-      id: 2,
-      firstName: 'Jane',
-      lastName: 'Smith',
-      nationality: 'British',
-      title: 'Engineer',
-      daysOnBoard: 90,
-      dailyRate: 180,
-      currency: 'EUR',
-      discount: 0,
-      certificates: [
-        { type: 'First Aid', issueDate: '2022-05-01', expiryDate: '2024-05-01' },
-      ],
-    },
-    {
-      id: 3,
-      firstName: 'Michael',
-      lastName: 'Johnson',
-      nationality: 'Canadian',
-      title: 'Cooker',
-      daysOnBoard: 80,
-      dailyRate: 150,
-      currency: 'USD',
-      discount: 0,
-      certificates: [
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-        { type: 'Safety Training', issueDate: '2023-01-01', expiryDate: '2025-01-01' },
-      ],
-    },
-    {
-      id: 4,
-      firstName: 'Alice',
-      lastName: 'Williams',
-      nationality: 'Australian',
-      title: 'Mechanic',
-      daysOnBoard: 110,
-      dailyRate: 190,
-      currency: 'EUR',
-      discount: 0,
-      certificates: [
-        { type: 'Engine Repair', issueDate: '2021-06-15', expiryDate: '2023-06-15' },
-      ],
-    },
-    {
-      id: 5,
-      firstName: 'Robert',
-      lastName: 'Brown',
-      nationality: 'American',
-      title: 'Engineer',
-      daysOnBoard: 150,
-      dailyRate: 220,
-      currency: 'USD',
-      discount: 0,
-      certificates: [
-        { type: 'Electrical Safety', issueDate: '2022-07-20', expiryDate: '2024-07-20' },
-      ],
-    },
-    {
-      id: 6,
-      firstName: 'Olivia',
-      lastName: 'Taylor',
-      nationality: 'Canadian',
-      title: 'Cooker',
-      daysOnBoard: 70,
-      dailyRate: 160,
-      currency: 'CAD',
-      discount: 0,
-      certificates: [
-        { type: 'Food Safety', issueDate: '2021-03-12', expiryDate: '2023-03-12' },
-      ],
-    },
-    {
-      id: 7,
-      firstName: 'Liam',
-      lastName: 'Miller',
-      nationality: 'Irish',
-      title: 'Captain',
-      daysOnBoard: 180,
-      dailyRate: 250,
-      currency: 'EUR',
-      discount: 0,
-      certificates: [
-        { type: 'Navigation', issueDate: '2021-01-10', expiryDate: '2023-01-10' },
-      ],
-    },
-    {
-      id: 8,
-      firstName: 'Sophia',
-      lastName: 'Davis',
-      nationality: 'British',
-      title: 'Engineer',
-      daysOnBoard: 95,
-      dailyRate: 210,
-      currency: 'GBP',
-      discount: 0,
-      certificates: [
-        { type: 'Marine Engineering', issueDate: '2022-11-18', expiryDate: '2024-11-18' },
-      ],
-    },
-    {
-      id: 9,
-      firstName: 'James',
-      lastName: 'Miller',
-      nationality: 'Australian',
-      title: 'Cooker',
-      daysOnBoard: 60,
-      dailyRate: 140,
-      currency: 'AUD',
-      discount: 0,
-      certificates: [
-        { type: 'Food Hygiene', issueDate: '2022-08-05', expiryDate: '2024-08-05' },
-      ],
-    },
-    {
-      id: 10,
-      firstName: 'Ethan',
-      lastName: 'Wilson',
-      nationality: 'Canadian',
-      title: 'Mechanic',
-      daysOnBoard: 130,
-      dailyRate: 210,
-      currency: 'USD',
-      discount: 0,
-      certificates: [
-        { type: 'Mechanical Safety', issueDate: '2021-12-01', expiryDate: '2023-12-01' },
-      ],
-    },
-    {
-      id: 11,
-      firstName: 'Mia',
-      lastName: 'Moore',
-      nationality: 'American',
-      title: 'Cooker',
-      daysOnBoard: 85,
-      dailyRate: 155,
-      currency: 'EUR',
-      discount: 0,
-      certificates: [
-        { type: 'Nutrition', issueDate: '2023-02-20', expiryDate: '2025-02-20' },
-      ],
-    },
-    {
-      id: 12,
-      firstName: 'Jacob',
-      lastName: 'Anderson',
-      nationality: 'British',
-      title: 'Engineer',
-      daysOnBoard: 100,
-      dailyRate: 200,
-      currency: 'GBP',
-      discount: 0,
-      certificates: [
-        { type: 'Welding', issueDate: '2022-04-15', expiryDate: '2024-04-15' },
-      ],
-    },
-    {
-      id: 13,
-      firstName: 'Amelia',
-      lastName: 'Thomas',
-      nationality: 'Canadian',
-      title: 'Captain',
-      daysOnBoard: 140,
-      dailyRate: 230,
-      currency: 'USD',
-      discount: 0,
-      certificates: [
-        { type: 'Captain License', issueDate: '2020-09-05', expiryDate: '2024-09-05' },
-      ],
-    },
-    {
-      id: 14,
-      firstName: 'David',
-      lastName: 'Jackson',
-      nationality: 'Irish',
-      title: 'Engineer',
-      daysOnBoard: 120,
-      dailyRate: 175,
-      currency: 'EUR',
-      discount: 0,
-      certificates: [
-        { type: 'Shipbuilding', issueDate: '2022-02-18', expiryDate: '2024-02-18' },
-      ],
-    },
-  ];
-  
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "nationality": "Brazil",
+    "title": "Captain",
+    "daysOnBoard": 78,
+    "dailyRate": 156,
+    "discount": 0.0606,
+    "currency": "USD",
+    "certificateRelations": [
+      {
+        "certificateId": 2,
+        "issueDate": "2022-10-17",
+        "expiryDate": "2025-02-05"
+      },
+      {
+        "certificateId": 2,
+        "issueDate": "2021-08-15",
+        "expiryDate": "2025-04-10"
+      },
+      {
+        "certificateId": 1,
+        "issueDate": "2021-10-25",
+        "expiryDate": "2024-12-07"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "firstName": "Amit",
+    "lastName": "Sharma",
+    "nationality": "India",
+    "title": "Engineer",
+    "daysOnBoard": 131,
+    "dailyRate": 413,
+    "discount": 0.000015,
+    "currency": "EUR",
+    "certificateRelations": [
+      {
+        "certificateId": 5,
+        "issueDate": "2020-01-18",
+        "expiryDate": "2025-01-21"
+      },
+      {
+        "certificateId": 3,
+        "issueDate": "2021-04-17",
+        "expiryDate": "2025-07-05"
+      },
+      {
+        "certificateId": 4,
+        "issueDate": "2023-04-02",
+        "expiryDate": "2024-12-02"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "firstName": "Emily",
+    "lastName": "Johnson",
+    "nationality": "USA",
+    "title": "Captain",
+    "daysOnBoard": 119,
+    "dailyRate": 365,
+    "discount": 0.1421,
+    "currency": "EUR",
+    "certificateRelations": [
+      {
+        "certificateId": 3,
+        "issueDate": "2022-11-08",
+        "expiryDate": "2024-08-08"
+      },
+      {
+        "certificateId": 1,
+        "issueDate": "2022-01-13",
+        "expiryDate": "2025-12-19"
+      }
+    ]
+  }
+];
